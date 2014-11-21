@@ -8,7 +8,7 @@ def page_rank(graph, iteration=20, damping_factor=0.85):
     ranks = dict.fromkeys(graph.nodes, 1.0/num_nodes)
     
     min_value = 1 - damping_factor
-    for iteration in xrange(int(iteration)):
+    for itr in xrange(int(iteration)):
         for node in graph.nodes:
             rank = min_value
             for in_node in graph.in_nodes[node]:
