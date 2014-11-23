@@ -1,0 +1,27 @@
+
+資料探勘Data Mining的介紹
+
+Data Mining 是 Data Warehouse 應用方式中最重要的一種。基本上，Data Mining 是用來將你的資料中隱藏的資訊挖掘出來，所以 Data Mining 其實是所謂的 Knowledge Discovery 的一部份，Data Mining 使用了許多統計分析與 Modeling 的方法，到資料中尋找有用的特徵（Patterns）以及關連性（Relationships）。 Knowledge Discovery 的過程對 Data Mining 的應用成功與否有重要的影響，只有它才能確保 Data Mining 能獲得有意義的結果。 http://page4.txt
+
+Data Mining的功能 　
+一般而言，Data Mining功能可包含下列五項功能：
+　‧分類(classification) 
+　‧推估(estimation) 
+　‧預測(prediction) 
+　‧關聯分組(affinity grouping)
+　‧同質分組(clustering)
+   
+
+　茲將這些功能的意義及可能使用的技巧簡述如下：
+
+分類
+按照分析對象的屬性分門別類加以定義，建立類組(class)。例如，將信用申請者的風險屬性，區分為高度風險申請者，中度風險申請者及低度風險申請者。使用的技巧有決策樹(decision tree)，記憶基礎推理(memory - based reasoning)等。
+
+推理 
+根據既有連續性數值之相關屬性資料，以獲致某一屬性未知之值。例如按照信用申請者之教育程度、行為別來推估其信用卡消費量。使用的技巧包括統計方法上之相關分析、迴歸分析及類神經網路方法。 http://page1.txt
+預測
+根據對象屬性之過去觀察值來推估該屬性未來之值。例如由顧客過去之刷卡消費量預測其未來之刷卡消費量。使用的技巧包括迴歸分析、時間數列分析及類神經網路方法。這是一種知識挖掘與資料工程導論。 
+關聯分組
+從所有物件決定那些相關物件應該放在一起。例如超市中相關之盥洗用品(牙刷、牙膏、牙線)，放在同一間貨架上。在客戶行銷系統上，此種功能係用來確認交叉銷售(cross selling)的機會以設計出吸引人的產品群組。 
+同質分組
+將異質母體中區隔為較具同質性之群組(clusters)。同質分組相當於行銷術語中的區隔化(segmentation)，但是，假定事先未對於區隔加以定義，而資料中自然產生區隔。使用的技巧包括k-means法及agglomeration法。
