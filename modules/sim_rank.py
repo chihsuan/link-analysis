@@ -16,8 +16,7 @@ def sim_rank(graph, C=0.9, iteration=20, min_delta=0.85):
             for na in graph.in_nodes[a]:
                 for nb in graph.in_nodes[b]:
                     s_ab += old_sim[int(na)-1][int(nb)-1]
-             
-            sim[int(a)-1][int(b)-1] =  s_ab * C / len(graph.in_nodes[a]) * len(graph.in_nodes[b])
+            sim[int(a)-1][int(b)-1] =  s_ab * C / (len(graph.in_nodes[a]) * len(graph.in_nodes[b]))
 
     return sim
 
