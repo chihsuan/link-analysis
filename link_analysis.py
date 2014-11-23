@@ -67,12 +67,12 @@ if __name__=='__main__':
     sorted_auth = sorted(auth.items(), key=operator.itemgetter(1))
     sorted_hubs = sorted(hubs.items(), key=operator.itemgetter(1))
 
+    output_path = 'dist/' + sys.argv[1].split('/')[1][:-4] 
     if sys.argv[1][-4:] != 'json':
         sim = sim_rank(graph)
-        json_io.write_json(output_path + '_sim.json', sim)
+        np.savetxt(output_path + '_sim_rank', sim, fmt='%.2e')
         f.close()
 
-    output_path = 'dist/' + sys.argv[1].split('/')[1][:-4] 
     json_io.write_json(output_path + '_rank.json', rank)
     json_io.write_json(output_path + '_auth.json', auth)
     json_io.write_json(output_path + '_hubs.json', hubs)
