@@ -1,3 +1,5 @@
+#!/usr/bin/env python2.7
+# -*- coding: utf-8 -*-
 import sys
 import urllib2
 
@@ -34,10 +36,10 @@ def movie_graph(urls):
                 pages[count] = title
                 pages_dic[title] = count
                 graph[curr_count].append(count)
+                count += 1
             else:
                 graph[curr_count].append(pages_dic[title])
 
-            count += 1
         print
         pages[curr_count] = movie_title
         pages_dic[movie_title] = curr_count
@@ -68,5 +70,5 @@ if __name__=='__main__':
     pages, graph = movie_graph(urls)
     f.close()
 
-    json_io.write_json('dataset/movie_dic.json', pages)
-    json_io.write_json('dataset/imdb.json', graph)
+    json_io.write_json('dataset/imdb.json', pages)
+    json_io.write_json('dataset/graph_9.json', graph)
