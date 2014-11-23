@@ -37,8 +37,8 @@ def sum_authorities(graph, node, authorities):
     if node not in graph.out_nodes:
         return s_authorities
 
-    for in_node in graph.out_nodes[node]:
-        s_authorities += authorities[in_node]
+    for out_node in graph.out_nodes[node]:
+        s_authorities += authorities[str(out_node)]
     return s_authorities
 
 def normalization(dic):

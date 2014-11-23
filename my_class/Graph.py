@@ -14,11 +14,11 @@ class Graph:
         in_nodes = {}
         for node in self.nodes:
             in_nodes[node] = []
-
+        
         for source, targets in self.graph.iteritems():
             for node in targets:
-                if source not in in_nodes[node]:
-                    in_nodes[node].append(source)
+                if str(source) not in in_nodes[str(node)]:
+                    in_nodes[str(node)].append(str(source))
         return in_nodes
          
 
