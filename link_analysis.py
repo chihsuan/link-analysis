@@ -47,10 +47,17 @@ if __name__=='__main__':
         graph = read_graph(f)
     else:
         graph = json_io.read_json(sys.argv[1])
-        movie_dic = json_io.read_json(sys.argv[2])
-        nodes = movie_dic.keys()
-        for i in xrange(len(nodes)):
-            nodes[i] = str(nodes[i])
+
+        if len(sys.argv) == 3:
+            movie_dic = json_io.read_json(sys.argv[2])
+            nodes = movie_dic.keys()
+            for i in xrange(len(nodes)):
+                nodes[i] = str(nodes[i])
+        else:
+            nodes = []
+            for i in range(1, 26):
+                nodes.append(str(i))
+            
         graph = Graph(graph, nodes)
 
 
@@ -60,12 +67,10 @@ if __name__=='__main__':
     sorted_auth = sorted(auth.items(), key=operator.itemgetter(1))
     sorted_hubs = sorted(hubs.items(), key=operator.itemgetter(1))
 
-
     if sys.argv[1][-4:] != 'json':
         sim = sim_rank(graph)
         json_io.write_json(output_path + '_sim.json', sim)
         f.close()
-
 
     output_path = 'dist/' + sys.argv[1].split('/')[1][:-4] 
     json_io.write_json(output_path + '_rank.json', rank)
