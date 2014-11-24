@@ -10,9 +10,12 @@ def page_rank(graph, iteration=20, damping_factor=0.85):
     min_value = 1 - damping_factor
     for itr in xrange(int(iteration)):
         for node in graph.nodes:
+            if node not in graph.out_nodes:
+                ranks[node] = 0
+                continue
             rank = min_value
             for in_node in graph.in_nodes[node]:
-                rank = damping_factor * ranks[in_node] / len(graph.out_nodes[in_node])
+                rank += damping_factor * ranks[in_node] / len(graph.out_nodes[in_node])
             ranks[node] = rank
     return ranks
 
