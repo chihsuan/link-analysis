@@ -4,6 +4,7 @@ import sys
 import re
 import numpy as np
 import operator
+import datetime
 
 from my_class.Graph import Graph
 from modules.hits import hits
@@ -60,12 +61,18 @@ if __name__=='__main__':
             
         graph = Graph(graph, nodes)
 
-
+    s_rank = datetime.datetime.now()
     rank = page_rank(graph, 20, 0.85)
+    e_rank = datetime.datetime.now()
 
-    auth, hubs = hits(graph, 40)
+    s_hits = datetime.datetime.now()
+    auth, hubs = hits(graph, 20)
     sorted_auth = sorted(auth.items(), key=operator.itemgetter(1))
     sorted_hubs = sorted(hubs.items(), key=operator.itemgetter(1))
+    e_hits = datetime.datetime.now()
+    print rank
+    print auth
+    print hubs
 
     output_path = 'dist/' + sys.argv[1].split('/')[1][:-4] 
     if sys.argv[1][-4:] != 'json':
@@ -76,3 +83,7 @@ if __name__=='__main__':
     json_io.write_json(output_path + '_rank.json', rank)
     json_io.write_json(output_path + '_auth.json', auth)
     json_io.write_json(output_path + '_hubs.json', hubs)
+    t_rank =  e_rank - s_rank
+    t_hits = e_hits - s_hits
+    print t_rank.microseconds
+    print t_hits.microseconds
